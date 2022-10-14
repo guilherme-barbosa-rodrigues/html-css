@@ -22,6 +22,46 @@
 <body>
     <h1>Meu formulário</h1>
     <fieldset>
+      <legend>SOMA</legend>
+        <form action="cadastro.php" method="get">
+           <p>
+                <label for="in1">Número 1: </label>
+                <input type="number" name="n1" id="in1" min="0" max="50" required oninput="isoma.innerHTML = Number(in1.value)+ Number(in2.value)">
+            </p>
+            <p>
+                <label for="in2">Número 2: </label>
+                <input type="number" name="n2" id="in2" min="0" max="50" required oninput="isoma.innerHTML = Number(in1.value)+ Number(in2.value)">
+            </p>
+            <p>
+                <label for="isoma">Soma: </label>
+                <output name="soma" id="isoma">0</output>
+            </p>
+           <p>
+                <label for="inum">Numero: </label>
+                <input type="range" name="num"  id="inum" min="0" max="10" value="5" oninput="ival.innerHTML = Number(inum.value)">
+                <output id="ival">5</output>
+            <p>
+                <label for="iano">Em que ano voce nasceu? </label> <br>
+                <input type="number" name="ano" id="iano" min="1900" max="2022" oninput="calcIdade()">
+            </p>
+            <p>
+                <label for="iidade">Sua idade é:</label>
+                <output id="iidade">0</output>
+            </p>
+            </p>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p> 
+        </form>
+        <script>
+            function calcIdade() {
+                let atual = new Date().getFullYear()
+                iidade.innerHTML = Number(atual) - Number(iano.value)
+            }
+        </script>
+    </fieldset>
+<fieldset>
         <legend>Dados Pessoais</legend>
         <form action="cadastro.php" method="POST" autocomplete="on">
             <p><label for="inome">Nome:</label> <input type="text" name="nome" id="inome" required placeholder="Usuario" autocomplete="name"></p>
@@ -58,7 +98,7 @@
             <p>
                 <label for="inumero">Telefone</label>
                 <input type="tel" name="tel" id="inumero" required pattern="^\(\d{2}\)\d{4,5}-\d{4}$" placeholder="(xx)xxxx-xxxx">
-                <!--Estudar mais sobre REGEX-->
+                Estudar mais sobre REGEX
             </p>
             <p>
                 <input type="checkbox" name="esbas" id="iesbas"><label for="iesbas">Os dados estao corretos?</label> <br>
@@ -70,6 +110,36 @@
             <input type="radio" name="sexo" id="isexmas"><label for="isexmas">Masculino</label>
             <input type="radio" name="sexo" id="isexfem"><label for="isexfem">Feminino</label>
         </fieldset>
+        <fieldset>
+            <legend>Qual é seu estado?</legend>
+            <p>
+                <label for="iest">Estado:</label>
+                <select name="estado" id="iest">
+                    <option value="" selected required >---- Escolha ----</option>
+                    <optgroup label="Região Nordeste">
+                        <option value="PE">Pernambuco</option>
+                        <option value="PB">Paraiba</option>
+                    </optgroup>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="AP">Amapá</option>
+                    <option value="SP">São Paulo</option>
+                    <input type="submit" value="Enviar">
+                </select>
+            </p>
+        </fieldset>
+        <p>
+            <label for="iprof">Profissão: </label>
+            <input type="text" name="prof" id="iprof" list="istprof">
+            <datalist id="istprof">
+                <option>Administrador</option>
+                <option>Contabilista</option>
+                <option>Desenvolvedor</option>
+                <option>Professor</option>
+        </p>
+        <p>
+            <label for="imsg">Mensagem: </label> <br>
+            <textarea name="msg" id="imsg" cols="30" rows="10"></textarea>
+        </p>
         <p>
             <input type="submit" value="Enviar">
             <input type="reset" value="Limpar">
