@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/* estilo para impressora*/
+
+* {
+    margin: 7.5px;
+    padding: 7.5px;
+}
+
+html {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+menu {
+    display: none;
+}
+article::after {
+    content: 'Esse artigo foi impresso atraves do site de Guilherme Barbosa'
+}
+article {
+    width: 100%;
+}
