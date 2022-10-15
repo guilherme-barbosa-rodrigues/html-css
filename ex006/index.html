@@ -7,9 +7,10 @@
     <title>Menu responsivo</title>
     <link rel="stylesheet" href="estilos/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/media-query.css">
 
 </head>
-<body>
+<body onresize="mudouTamanho()">
     <header>
         <h1>Site Com Menu</h1>
         <i id="burger" class="material-icons" onclick="clickMenu()">menu</i>
@@ -33,6 +34,13 @@
         </article>
     </main>
     <script>
+        function mudouTamanho (){
+            if(window.innerWidth >= 769) {
+            item.style.display = 'block'
+        } else {
+            item.style.display = 'none'
+        }
+        }
         function clickMenu() {
             if (item.style.display == 'block') {
                 item.style.display = 'none'
