@@ -1,7 +1,25 @@
 @charset "UTF-8";
 
-@media print {
-
+@media print {  
+    *{
+        font-family: 'Courier New', Courier, monospace;
+    }
+    body {
+      background-image: url(../imagens/back-print.jpg);/**  Desnessesario **/
+    }
+    main {
+        border: 2px solid black;
+    }
+    main h1 {
+        text-shadow: none;
+        color: black;
+    }
+    
+    img#phone { display: none; }
+    img#tablet { display: none; }
+    img#print { display: block; }
+    img#pc { display: none; }
+    img#tv { display: none; }
 }
 /**
 @media screen and (max-width: 600px) {
